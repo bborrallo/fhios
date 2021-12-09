@@ -144,7 +144,7 @@ def concatenarDiccionario(dic1, dic2):
 #################################  
 
 def automationTest():
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome()                                                                         # La prueba se ejecuta en Chrome puesto que es de los browser mas usados
     numMain = 0
     numServ = 0
     numClientes = 0
@@ -153,8 +153,8 @@ def automationTest():
     numUnete = 0
     
     try:
-        driver.get('https://www.fhios.es/')
-        numMain = len(driver.find_elements_by_xpath("//*[contains(text(), 'fhios')]"))
+        driver.get('https://www.fhios.es/')                                                             # Se carga la web principal
+        numMain = len(driver.find_elements_by_xpath("//*[contains(text(), 'fhios')]"))                  # Se busca el texto a lo largo de la web y se calcula la longitud (nº veces encontrado)
         print(numMain)
     
     except:
@@ -163,7 +163,7 @@ def automationTest():
     try:    
         driver.implicitly_wait(10)
         
-        driver.find_element_by_xpath('//a[@href="https://www.fhios.es/servicios/"]').click()   
+        driver.find_element_by_xpath('//a[@href="https://www.fhios.es/servicios/"]').click()            # Se clica sobre el boton para ir a otro apartado y se calcula de la misma forma que antes
         numServ = len(driver.find_elements_by_xpath("//*[contains(text(), 'fhios')]"))
         print(numServ)
     except:
@@ -172,7 +172,7 @@ def automationTest():
     try:        
         driver.implicitly_wait(10)
         
-        driver.find_element_by_xpath('//a[@href="https://www.fhios.es/clientes/"]').click()
+        driver.find_element_by_xpath('//a[@href="https://www.fhios.es/clientes/"]').click()             # Se repite el proceso anterior y se aplica a todos los apartados menos a blog
         numClientes = len(driver.find_elements_by_xpath("//*[contains(text(), 'fhios')]"))
         print(numClientes)
     except:
